@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title NodeJs Epress Chat App
+        script(src = "https://cdn.tailwindcss.com")
+        //-  link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css")
+    body(class= "h-screen flex flex-col")
+        //- header>a+nav>ul>li>a
+        header(class="flex items-center gap-5 p-5 bg-black text-white shadow-xl")
+            a(href="/") Node.Chat
+            nav
+                ul
+                    li
+                        a(href="/", class="hover:text-gray-500") Accueil
+        main(class="flex-1 overflow-hidden") 
+            div(class="flex flex-col md:flex-row h-full") 
+                div(class="bg-gray-800/10 min-w-52") 
+                    p #Steeven 
+                    p #Armel 
+                    p #Alphonso 
+                div(class="flex-1 relative") 
+                    P 
+                        | Bienvenu ! &nbsp;
+                        strong(class="text-4xl") 
+                            | Dakarmo 
+                    ul 
+                        li les messages aparaîtrons ici
+                    form(action='#', method="post", class="p-1 w-30 bg-gray-300 flex gap-4 absolute bottom-5 left-20 right-10")
+                        input(type="text", name="message", class="border flex-1 rounded-2xl py-2 pl-4 outline-none", autofocus)
+                        button(type="submit", class="bg-gray-800 text-white hover:bg-gray-700 cursor-pointer px-4 rounded-md") Envoyer

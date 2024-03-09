@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-epress-app-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon ./bin/www"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookieparser": "^0.1.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.0",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "pug": "^3.0.2"
+  }
+}

@@ -1,0 +1,16 @@
+const http = require('node:http');
+const port = 3000;
+
+const app = require('../app')
+
+/*
+* Création du serveur HTTP
+*/
+const server = http.createServer(app);
+// const server = http.createServer(function(req, resp) {
+//     resp.end('Hello world !');
+// });
+
+server.listen(port, () => {
+    console.log(`Serveur prêt sur http://localhost:${port}`);
+})
