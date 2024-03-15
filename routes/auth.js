@@ -8,12 +8,21 @@ passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: `${process.env.SITE_URL}/auth/google/callback`,
-    passReqToCallback   : true
+    
   },
   function(request, accessToken, refreshToken, profile, done) {
-    User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      return done(err, user);
-    });
+    // User.findOrCreate({ googleId: profile.id }, function (err, user) {
+    //   return done(err, user);
+    // });
+
+    const user = {
+      id: profile._json.sub, 
+      first_name:profile._json.givenName,
+      last_name:profile._json.family_name,
+      email:profile._json.email,
+      avatar: profile._json.picture,
+    };
+      return done(null, user);
   }
 ));
 
@@ -29,4 +38,15 @@ passport.authenticate('google', {
   successRedirect:'/'
 }))
 
+/*serialisation de l'utilisateur connecté qu'on veut renvoyer au client*/
+passport.serializeUser(function(user, cb) {
+  process.nextTick(function(){
+    cb(null, user)
+  })
+});
+passport.deserializeUser(function(id, cb) {
+  process.nextTick(function(){
+    cb(null, id)
+  })
+});
 module.exports = router;
